@@ -16,7 +16,6 @@
  schema:
      gps_device: "str"
      gps_options: "str"
- host_network: false
  devices:
      - "/dev/ttyACM0:/dev/ttyACM0"
      - "/dev/ttyUSB0:/dev/ttyUSB0"
