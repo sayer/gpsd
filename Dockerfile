@@ -17,4 +17,5 @@ WORKDIR /coachproxy
 EXPOSE 2947
 
 # Run gpsd directly with full path
-CMD ["/usr/sbin/gpsd", "-N", "-n", "/dev/ttyACM0"]
+#CMD ["/usr/sbin/gpsd", "-N", "-n", "/dev/ttyACM0"]
+CMD ["/gpsd/run.sh"]
