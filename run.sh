@@ -4,7 +4,7 @@
 GPS_DEVICE="${GPS_DEVICE:-/dev/ttyACM0}"
 GPS_OPTIONS="${GPS_OPTIONS:-}"
 
-echo "starting gpsd ${GPS_OPTIONS} ${GPS_DEVICE}
+echo "starting gpsd ${GPS_OPTIONS} ${GPS_DEVICE}"
 
 # Start gpsd in the foreground
 gpsd ${GPS_OPTIONS} ${GPS_DEVICE}
