@@ -11,8 +11,15 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 
-# Create app directory
-WORKDIR /coachproxy
+ # Create app directory
+ WORKDIR /gpsd
+
+ # Copy startup script
+ COPY run.sh /gpsd/
+
+# Set execute permissions
+ RUN chmod +x /gpsd/run.sh && \
+     chown -R root:root /gpsd
 
 EXPOSE 2947
 
