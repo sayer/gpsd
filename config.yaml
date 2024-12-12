@@ -1,19 +1,25 @@
-name: "GPSD"
-description: "Provide GPS data to Home Assistant."
-version: "0.1.1"
-slug: "gpsd"
-init: false
-arch:
-  - aarch64
-  - amd64
-  - armv7
-  - i386
-ports:
-  8123/tcp: 8123
-options:
-  gps_device: "/dev/ttyACM0"
-schema:
-  gps_device: "str"
+ name: "GPS Daemon"
+ description: "Provides GPS data to Home Assistant."
+ version: "0.1.0"
+ slug: "gpsd"
+ init: false
+ arch:
+   - aarch64
+   - amd64
+   - armv7
+   - i386
+ ports:
+   2947/tcp: 2947
+ options:
+     gps_device: "/dev/ttyACM0"
+     gps_options: "-N -G -n"
+ schema:
+     gps_device: "str"
+     gps_options: "str"
+ host_network: false
+ devices:
+     - "/dev/ttyACM0:/dev/ttyACM0"
+     - "/dev/ttyUSB0:/dev/ttyUSB0"
 volumes:
     - 'share:/share'
 host_network: true
