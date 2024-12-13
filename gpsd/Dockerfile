@@ -9,7 +9,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gpsd \
     kmod \
-    bashio \
     && rm -rf /var/lib/apt/lists/*
 
 
