@@ -23,6 +23,9 @@ RUN apt-get update && \
 
 EXPOSE 2947
 
+ENV DEVICE="/dev/ttyACM0"
+ENV OPTIONS="-n -N -b"
+
 # Run gpsd directly with full path
 #CMD ["/usr/sbin/gpsd", "-N", "-n", "/dev/ttyACM0"]
 CMD ["/gpsd/run.sh"]

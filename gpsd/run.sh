@@ -1,17 +1,17 @@
 #!/usr/bin/with-contenv bash
 
 # Set gpsd options from environment variables, or defaults
-GPS_DEVICE=$(bashio::config 'device')
-GPS_OPTIONS=$(bashio::config 'options')
+#GPS_DEVICE=$(bashio::config 'device')
+#GPS_OPTIONS=$(bashio::config 'options')
 
 env
 
 modprobe pps_core
 
-echo "starting gpsd: $GPS_OPTIONS - $GPS_DEVICE"
+echo "starting gpsd: $OPTIONS - $DEVICE"
 
 # Start gpsd in the foreground
-/usr/sbin/gpsd $GPS_OPTIONS $GPS_DEVICE
+/usr/sbin/gpsd ${OPTIONS} ${DEVICE}
 
 echo "try again...."
 /usr/sbin/gpsd -b -N -n /dev/ttyACM0

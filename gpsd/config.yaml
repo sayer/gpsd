@@ -1,6 +1,6 @@
 name: "GPS Daemon"
 description: "Provides GPS data to Home Assistant."
-version: "0.1.11"
+version: "0.1.12"
 slug: "gpsd"
 init: false
 arch:
@@ -11,11 +11,11 @@ arch:
 ports:
   2947/tcp: 2947
 options:
-    device: "/dev/ttyACM0"
-    options: "-b -N -G -n"
+    DEVICE: "/dev/ttyACM0"
+    OPTIONS: "-b -N -G -n"
 schema:
-    device: "str"
-    options: "str"
+    DEVICE: "str"
+    OPTIONS: "str"
 devices:
     - /dev/ttyACM0:/dev/ttyACM0
     - /dev/ttyACM0:/dev/ttyAMA10
