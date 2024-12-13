@@ -1,8 +1,10 @@
 #!/usr/bin/with-contenv bash
 
 # Set gpsd options from environment variables, or defaults
-#GPS_DEVICE="${GPS_DEVICE:-/dev/ttyACM0}"
-#GPS_OPTIONS="${GPS_OPTIONS:-}"
+GPS_DEVICE=$(bashio::config 'device')
+GPS_OPTIONS=$(bashio::config 'options')
+
+env
 
 modprobe pps_core
 
