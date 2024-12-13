@@ -6,7 +6,7 @@
 
 ls -l /usr/sbin/gpsd
 
-echo "starting gpsd: $GPS_OPTIONS - $GPS_DEVICE}
+echo "starting gpsd: $GPS_OPTIONS - $GPS_DEVICE"
 
 # Start gpsd in the foreground
 /usr/sbin/gpsd $GPS_OPTIONS $GPS_DEVICE
