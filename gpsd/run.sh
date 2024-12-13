@@ -6,10 +6,13 @@
 
 ls -l /usr/sbin/gpsd
 
-echo "starting gpsd: ${GPS_OPTIONS} ${GPS_DEVICE}"
+echo "starting gpsd: $GPS_OPTIONS - $GPS_DEVICE}
 
 # Start gpsd in the foreground
-/usr/sbin/gpsd ${GPS_OPTIONS} ${GPS_DEVICE}
+/usr/sbin/gpsd $GPS_OPTIONS $GPS_DEVICE
+
+echo "try again...."
+/usr/sbin/gpsd -N -n /dev/ttyACM0
 
 # Wait for any process to exit
 #wait -n

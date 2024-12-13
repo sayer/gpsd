@@ -1,6 +1,6 @@
 name: "GPS Daemon"
 description: "Provides GPS data to Home Assistant."
-version: "0.1.6"
+version: "0.1.7"
 slug: "gpsd"
 init: false
 arch:
