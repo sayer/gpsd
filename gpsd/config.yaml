@@ -25,5 +25,5 @@ volumes:
     - 'share:/share'
 host_network: true
 privileged:
-    - CAP_DAC_READ_SEARCH
+    - DAC_READ_SEARCH
 #full_access: true
