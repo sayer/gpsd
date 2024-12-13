@@ -4,7 +4,9 @@
 #GPS_DEVICE="${GPS_DEVICE:-/dev/ttyACM0}"
 #GPS_OPTIONS="${GPS_OPTIONS:-}"
 
-ls -l /usr/sbin/gpsd
+modprobe pps_core
+
+ls -l /dev/tty*
 
 echo "starting gpsd: $GPS_OPTIONS - $GPS_DEVICE"
 
@@ -12,7 +14,7 @@ echo "starting gpsd: $GPS_OPTIONS - $GPS_DEVICE"
 /usr/sbin/gpsd $GPS_OPTIONS $GPS_DEVICE
 
 echo "try again...."
-/usr/sbin/gpsd -N -n /dev/ttyACM0
+/usr/sbin/gpsd -D3 -N -n /dev/ttyACM0
 
 # Wait for any process to exit
 #wait -n
