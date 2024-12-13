@@ -1,5 +1,5 @@
-name: "RVC to MQTT Bridge"
-version: "0.1.4"
+name: "GPSD"
+version: "0.1.5"
 slug: "gpsd"
 description: "Provides gpsd services to HA"
 arch:
