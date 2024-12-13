@@ -1,10 +1,7 @@
 #!/usr/bin/with-contenv bash
 
-env
 
-modprobe pps_core
-
-echo "starting gpsd: ${OPTIONS} - ${DEVICE}"
+echo "\n\n\nstarting gpsd: ${OPTIONS} ${DEVICE}"
 
 # Start gpsd in the foreground
 /usr/sbin/gpsd ${OPTIONS} ${DEVICE}
@@ -13,7 +10,7 @@ echo "starting gpsd: ${OPTIONS} - ${DEVICE}"
 #/usr/sbin/gpsd -b -N -n /dev/ttyACM0
 
 # Wait for any process to exit
-#wait -n
+wait -n
 
 echo "gpsd exited"
 

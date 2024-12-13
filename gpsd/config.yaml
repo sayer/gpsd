@@ -1,6 +1,6 @@
 name: "GPS Daemon"
 description: "Provides GPS data to Home Assistant."
-version: "0.1.14"
+version: "0.1.15"
 slug: "gpsd"
 init: false
 arch:
@@ -24,4 +24,6 @@ devices:
 volumes:
     - 'share:/share'
 host_network: true
-full_access: true
+privileged:
+    - CAP_DAC_READ_SEARCH
+#full_access: true
