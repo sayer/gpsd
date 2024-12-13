@@ -8,7 +8,8 @@ env
 
 modprobe pps_core
 
-echo "starting gpsd: $OPTIONS - $DEVICE"
+echo "starting gpsd: ${OPTIONS} - ${DEVICE}"
+bashio::log.info "Starting gpsd : ${OPTIONS} - ${DEVICE}"
 
 # Start gpsd in the foreground
 /usr/sbin/gpsd ${OPTIONS} ${DEVICE}

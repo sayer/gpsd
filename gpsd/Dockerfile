@@ -8,6 +8,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gpsd \
+    kmod \
+    bashio \
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -26,6 +28,5 @@ EXPOSE 2947
 ENV DEVICE="/dev/ttyACM0"
 ENV OPTIONS="-n -N -b"
 
-# Run gpsd directly with full path
-#CMD ["/usr/sbin/gpsd", "-N", "-n", "/dev/ttyACM0"]
+# Run the script that lunaches gpsd
 CMD ["/gpsd/run.sh"]
