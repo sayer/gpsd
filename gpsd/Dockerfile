@@ -27,5 +27,8 @@ EXPOSE 2947
 ENV DEVICE="/dev/ttyACM0"
 ENV OPTIONS="-n -N -b"
 
+# Healthcheck to ensure gpsd is running
+HEALTHCHECK --interval=300s --timeout=10s --start-period=5s CMD pgrep gpsd || exit 1
+
 # Run the script that lunaches gpsd
 CMD ["/gpsd/run.sh"]

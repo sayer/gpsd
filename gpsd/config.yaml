@@ -1,6 +1,6 @@
 name: "GPS Daemon"
 description: "Provides GPS data to Home Assistant."
-version: "0.1.16"
+version: "0.1.17"
 slug: "gpsd"
 init: false
 arch:
@@ -13,14 +13,18 @@ ports:
 options:
     DEVICE: "/dev/ttyACM0"
     OPTIONS: "-b -N -G -n"
+
 schema:
-    DEVICE: "str"
-    OPTIONS: "str"
+  DEVICE: "select(/dev/ttyACM0|/dev/ttyUSB0|/dev/ttyUSB1|/dev/serial/by-id/usb-u-blox_AG_-_www.u-blox.com_u-blox_7_-_GPS_GNSS_Receiver-if00)"
+  OPTIONS: "str"
+
 devices:
     - /dev/ttyACM0:/dev/ttyACM0
+    - /dev/ttyACM0:/dev/ttyACM1
     - /dev/ttyACM0:/dev/ttyAMA10
     - /dev/ttyUSB0:/dev/ttyUSB0
     - /dev/ttyUSB0:/dev/ttyUSB1
+    - /dev/serial/by-id/usb-u-blox_AG_-_www.u-blox.com_u-blox_7_-_GPS_GNSS_Receiver-if00
 volumes:
     - 'share:/share'
 host_network: true
