@@ -6,11 +6,11 @@ env
 
 echo "Starting gpsd script at $(date)"
 
-echo -e "DEVICE: ${DEVICE}"
-echo -e "OPTIONS: ${OPTIONS}"
+echo -e "DEVICE: ${GPSDEVICE}"
+echo -e "OPTIONS: ${GPSOPTIONS}"
 
 # Start gpsd in the foreground
-/usr/sbin/gpsd -V "${OPTIONS}" "${DEVICE}" || echo "gpsd failed to start: $?"
+/usr/sbin/gpsd -V "${GPSOPTIONS}" "${GPSDEVICE}" || echo "gpsd failed to start: $?"
 
 # Wait for any process to exit
 wait -n

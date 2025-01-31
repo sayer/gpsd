@@ -1,5 +1,5 @@
 name: "GPSD"
-version: "0.1.27"
+version: "0.1.28"
 slug: "gpsd"
 description: "Provides gpsd services to HA"
 arch:
