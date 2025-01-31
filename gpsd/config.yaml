@@ -19,10 +19,12 @@ options:
     options: "-b -N -G -n"
 
 schema:
-  device: 
+  tty_device:
+    type: string
+    default: "/dev/ACM0"
     selector:
       device:
-        integration: serial
+        integration: "serial"
   options: "str"
 
 devices:
