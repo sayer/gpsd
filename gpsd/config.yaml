@@ -19,8 +19,8 @@ options:
     OPTIONS: "-b -N -G -n"
 
 schema:
-  DEVICE: "string"
-  OPTIONS: "string"
+  DEVICE: "str"
+  OPTIONS: "str"
 
 devices:
     - /dev/ttyACM0:/dev/ttyACM0
