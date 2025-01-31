@@ -1,18 +1,22 @@
 #!/usr/bin/bash
 
- echo "Starting gpsd script at $(date)"
+set -x
 
- echo -e "DEVICE: ${DEVICE}"
- echo -e "OPTIONS: ${OPTIONS}"
+env
 
- # Start gpsd in the foreground
- /usr/sbin/gpsd "${OPTIONS}" "${DEVICE}" || echo "gpsd failed to start: $?"
+echo "Starting gpsd script at $(date)"
 
- # Wait for any process to exit
- wait -n
+echo -e "DEVICE: ${DEVICE}"
+echo -e "OPTIONS: ${OPTIONS}"
 
- echo "gpsd exited with status: $?"
- echo "Exiting gpsd script at $(date)"
+# Start gpsd in the foreground
+/usr/sbin/gpsd -V "${OPTIONS}" "${DEVICE}" || echo "gpsd failed to start: $?"
 
- # Exit with status of process that exited first
- exit $?
+# Wait for any process to exit
+wait -n
+
+echo "gpsd exited with status: $?"
+echo "Exiting gpsd script at $(date)"
+
+# Exit with status of process that exited first
+exit $?
