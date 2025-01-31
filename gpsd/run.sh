@@ -1,15 +1,18 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/bash
 
-echo -e "\n\n\nstarting gpsd: ${OPTIONS} ${DEVICE}"
-date
+ echo "Starting gpsd script at $(date)"
 
-# Start gpsd in the foreground
-/usr/sbin/gpsd "${OPTIONS}" "${DEVICE}" || exit 1
+ echo -e "DEVICE: ${DEVICE}"
+ echo -e "OPTIONS: ${OPTIONS}"
 
-# Wait for any process to exit
-wait -n
+ # Start gpsd in the foreground
+ /usr/sbin/gpsd "${OPTIONS}" "${DEVICE}" || echo "gpsd failed to start: $?"
 
-echo "gpsd exited"
+ # Wait for any process to exit
+ wait -n
 
-# Exit with status of process that exited first
-exit $?
+ echo "gpsd exited with status: $?"
+ echo "Exiting gpsd script at $(date)"
+
+ # Exit with status of process that exited first
+ exit $?
