@@ -24,7 +24,7 @@ RUN apt-get update && \
 
 EXPOSE 2947
 
-ENV DEVICE="/dev/ttyACM0"
+ENV DEVICE="/dev/ttyACM1"
 ENV OPTIONS="-n -N -b"
 
 # Healthcheck to ensure gpsd is running
