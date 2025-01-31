@@ -24,9 +24,6 @@ RUN apt-get update && \
 
 EXPOSE 2947
 
-ENV DEVICE="/dev/ttyACM1"
-ENV OPTIONS="-n -N -b"
-
 # Healthcheck to ensure gpsd is running
 HEALTHCHECK --interval=300s --timeout=10s --start-period=5s CMD pgrep gpsd || exit 1
 
