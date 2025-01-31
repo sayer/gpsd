@@ -1,5 +1,5 @@
 name: "GPSD"
-version: "0.1.22"
+version: "0.1.23"
 slug: "gpsd"
 description: "Provides gpsd services to HA"
 arch:
@@ -10,5 +10,5 @@ arch:
 hassio_api: true
 url: "https://github.com/stephenayers/gpsd" 
 startup: application 
-image: "stephenayers/gpsd:latest"
+image: "srephenayers/gpsd:latest"
 icon: "mdi:car-connected" 
