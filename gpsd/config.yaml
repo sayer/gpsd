@@ -15,12 +15,15 @@ ports:
   2947/tcp: 2947
 
 options:
-    DEVICE: "/dev/ttyACM1"
-    OPTIONS: "-b -N -G -n"
+    device: "/dev/ttyACM1"
+    options: "-b -N -G -n"
 
 schema:
-  DEVICE: "str"
-  OPTIONS: "str"
+  device: 
+    selector:
+      device:
+        integration: serial
+  options: "str"
 
 devices:
     - /dev/ttyACM0:/dev/ttyACM0
