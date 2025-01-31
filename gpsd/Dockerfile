@@ -11,7 +11,6 @@ RUN apt-get update && \
     kmod \
     && rm -rf /var/lib/apt/lists/*
 
-
  # Create app directory
  WORKDIR /gpsd
 
@@ -23,6 +22,10 @@ RUN apt-get update && \
      chown -R root:root /gpsd
 
 EXPOSE 2947
+
+# Define the environment variables, these will be populated at runtime by HA
+ENV DEVICE=""
+ENV OPTIONS=""
 
 # Healthcheck to ensure gpsd is running
 HEALTHCHECK --interval=300s --timeout=10s --start-period=5s CMD pgrep gpsd || exit 1
