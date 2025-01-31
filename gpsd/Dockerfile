@@ -7,6 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Update and install packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    jq \
     gpsd \
     kmod \
     && rm -rf /var/lib/apt/lists/*
@@ -22,10 +23,6 @@ RUN apt-get update && \
      chown -R root:root /gpsd
 
 EXPOSE 2947
-
-# Define the environment variables, these will be populated at runtime by HA
-ENV DEVICE=""
-ENV OPTIONS=""
 
 # Healthcheck to ensure gpsd is running
 HEALTHCHECK --interval=300s --timeout=10s --start-period=5s CMD pgrep gpsd || exit 1
