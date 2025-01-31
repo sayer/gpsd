@@ -17,7 +17,7 @@ options:
     OPTIONS: "-b -N -G -n"
 
 schema:
-  DEVICE: "select(/dev/ttyACM0|/dev/ttyACM1|/dev/ttyUSB0|/dev/ttyUSB1)"
+  DEVICE: "device"
   OPTIONS: "str"
 
 devices:
