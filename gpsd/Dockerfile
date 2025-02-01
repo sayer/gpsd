@@ -25,7 +25,7 @@ RUN apt-get update && \
 EXPOSE 2947
 
 # Healthcheck to ensure gpsd is running
-HEALTHCHECK --interval=300s --timeout=10s --start-period=5s CMD pgrep gpsd || exit 1
+#HEALTHCHECK --interval=300s --timeout=10s --start-period=5s CMD pgrep gpsd || exit 1
 
 # Run the script that lunaches gpsd
 CMD ["/gpsd/run.sh"]
