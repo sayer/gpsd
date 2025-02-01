@@ -1,13 +1,15 @@
 #!/usr/bin/with-contenv bashio
 
-set -x
+#set -x
 
 env
 
-DEFAULT_DEVICE=$(bashio::config 'DEVICE')
-echo "default: ${DEFAULT_DEVICE}"
+DEVICE=$(bashio::config 'DEVICE')
 
 echo "Starting gpsd script at $(date)"
+
+DEVICE=$(bashio::config 'DEVICE')
+OPTIONS=$(bashio::config 'OPTIONS')
 
 # Set default values if variables are missing or empty
 DEVICE=${DEVICE:-"/dev/ttyACM0"}
