@@ -4,6 +4,9 @@ set -x
 
 env
 
+DEFAULT_DEVICE=$(bashio::config 'DEVICE')
+echo "default: ${DEFAULT_DEVICE}"
+
 echo "Starting gpsd script at $(date)"
 
 # Set default values if variables are missing or empty
