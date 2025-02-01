@@ -6,11 +6,15 @@ env
 
 echo "Starting gpsd script at $(date)"
 
+# Set default values if variables are missing or empty
+GPSDEVICE=${GPSDEVICE:-"/dev/ttyACM0"}
+GPSOPTIONS=${GPSOPTIONS:-"-b -N -G -n"}
+
 echo -e "DEVICE: ${GPSDEVICE}"
 echo -e "OPTIONS: ${GPSOPTIONS}"
 
 # Start gpsd in the foreground
-/usr/sbin/gpsd -V "${GPSOPTIONS}" "${GPSDEVICE}" || echo "gpsd failed to start: $?"
+/usr/sbin/gpsd ${GPSOPTIONS} ${GPSDEVICE} || echo "gpsd failed to start: $?"
 
 # Wait for any process to exit
 wait -n
